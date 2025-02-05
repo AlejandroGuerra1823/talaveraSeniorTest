@@ -17,17 +17,33 @@ export const CardActions = ({name, price, daily_change, symbol}: Stock) => {
       <View style={{alignSelf: 'center'}}>
         <Text style={{fontSize: 20}}> {symbol}</Text>
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={Styles.textInformationStyle}> {name}</Text>
-        <Text style={Styles.textInformationStyle}> {price}</Text>
-        <Text
-          style={[
-            Styles.textInformationStyle,
-            {color: priceColorManager(Number(daily_change))},
-          ]}>
-          {' '}
-          {daily_change}
-        </Text>
+      <View
+        style={{
+          //   flex: 1,
+          flexDirection: 'row',
+          //   justifyContent: 'space-between',
+          //   backgroundColor: 'red',
+        }}>
+        <View style={{backgroundColor: 'red'}}>
+          <Text style={[Styles.textInformationStyle, {}]}>{name}</Text>
+        </View>
+        <View style={{backgroundColor: 'red'}}>
+          <Text style={[Styles.textInformationStyle, {textAlign: 'center'}]}>
+            {price}
+          </Text>
+        </View>
+        <View>
+          <Text
+            style={[
+              Styles.textInformationStyle,
+              {
+                textAlign: 'right',
+                color: priceColorManager(Number(daily_change)),
+              },
+            ]}>
+            {daily_change}
+          </Text>
+        </View>
       </View>
     </View>
   );

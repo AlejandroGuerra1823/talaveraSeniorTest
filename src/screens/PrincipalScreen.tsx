@@ -7,12 +7,18 @@ export const PrincipalScreen = () => {
   console.log(stockData.stocks, 'Hola');
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={{flex: 1, backgroundColor: 'white', padding: 5}}>
       <FlatList
         data={stockData.stocks}
         ListHeaderComponent={() => (
-          <View>
-            {' '}
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: 15,
+            }}>
+            <Text>hola</Text>
+            <Text>hola</Text>
             <Text>hola</Text>
           </View>
         )}
