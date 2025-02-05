@@ -1,4 +1,4 @@
-import React, {Children, createContext} from 'react';
+import React, {Children, createContext, useState} from 'react';
 
 export interface ActionsContextProp {
   actionInformation: ActionData | undefined;
@@ -9,4 +9,12 @@ export interface ActionsContextProp {
 
 export const Context = createContext({} as ActionsContextProp);
 
-export const ContextProvider = ({children}: any) => {};
+export const ContextProvider = ({children}: any) => {
+  const [actionInformation, setActionInformation] = useState<ActionData>();
+
+  return (
+    <Context.Provider value={{actionInformation, setActionInformation}}>
+      {children}
+    </Context.Provider>
+  );
+};
