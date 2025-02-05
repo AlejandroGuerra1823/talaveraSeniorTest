@@ -8,9 +8,14 @@ export const PrincipalScreen = () => {
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <Text>PrincipalScreen</Text>
       <FlatList
         data={stockData.stocks}
+        ListHeaderComponent={() => (
+          <View>
+            {' '}
+            <Text>hola</Text>
+          </View>
+        )}
         renderItem={({item}) => (
           <CardActions
             name={item.name}
