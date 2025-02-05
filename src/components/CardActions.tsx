@@ -1,10 +1,18 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export const CardActions = () => {
+export const CardActions = ({name, price, daily_change, symbol}: Stock) => {
   return (
     <View style={Styles.Container}>
-      <Text>Hola</Text>
+      <View style={{alignSelf: 'center'}}>
+        <Text>Imagen gonita</Text>
+      </View>
+      <View>
+        <Text> {name}</Text>
+        <Text> {price}</Text>
+        <Text> {daily_change}</Text>
+        <Text> {symbol}</Text>
+      </View>
     </View>
   );
 };
