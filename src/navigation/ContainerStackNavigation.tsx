@@ -4,7 +4,7 @@ import {DetailScreen} from '../screens/DetailScreen/DetailScreen';
 
 export type ContainerStackParams = {
   PrincipalScreen: undefined;
-  DetailScreen: undefined;
+  DetailScreen: Stock;
 };
 
 const Stack = createNativeStackNavigator<ContainerStackParams>();

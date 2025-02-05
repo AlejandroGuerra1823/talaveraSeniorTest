@@ -25,7 +25,7 @@ export const PrincipalScreen = ({navigation}: Props) => {
           <CardActions
             stock={item}
             onPress={() => {
-              navigation.navigate('DetailScreen');
+              navigation.navigate('DetailScreen', item);
             }}
           />
         )}

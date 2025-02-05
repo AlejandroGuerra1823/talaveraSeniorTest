@@ -66,9 +66,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
-  flex1: {
-    flex: 1,
-  },
   price: {
     fontWeight: 'bold',
   },
