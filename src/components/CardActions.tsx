@@ -1,7 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-export const CardActions = ({name, price, daily_change, symbol}: Stock) => {
+interface Props {
+  stock: Stock;
+  onPress: () => void;
+}
+
+export const CardActions = ({stock, onPress}: Props) => {
   const priceColorManager = (prince: number) => {
     if (prince == 0) {
       return 'black';
@@ -13,56 +18,58 @@ export const CardActions = ({name, price, daily_change, symbol}: Stock) => {
   };
 
   return (
-    <View style={Styles.Container}>
-      <View style={{alignSelf: 'center'}}>
-        <Text style={{fontSize: 20}}> {symbol}</Text>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Text style={styles.title}>{stock.symbol}</Text>
+
+      <View style={styles.containerActions}>
+        <Text
+          style={[styles.text, {flex: 1, maxWidth: '33.3%'}]}
+          ellipsizeMode="tail"
+          numberOfLines={1}>
+          {stock.name}
+        </Text>
+        <Text
+          style={[styles.text, {flex: 1, textAlign: 'center'}, styles.price]}>
+          {stock.price}
+        </Text>
+        <Text
+          style={[
+            styles.text,
+            {
+              flex: 1,
+              color: priceColorManager(stock.daily_change),
+              textAlign: 'right',
+            },
+          ]}>
+          {stock.daily_change}
+        </Text>
       </View>
-      <View
-        style={{
-          //   flex: 1,
-          flexDirection: 'row',
-          //   justifyContent: 'space-between',
-          //   backgroundColor: 'red',
-        }}>
-        <View style={{backgroundColor: 'red'}}>
-          <Text style={[Styles.textInformationStyle, {}]}>{name}</Text>
-        </View>
-        <View style={{backgroundColor: 'red'}}>
-          <Text style={[Styles.textInformationStyle, {textAlign: 'center'}]}>
-            {price}
-          </Text>
-        </View>
-        <View>
-          <Text
-            style={[
-              Styles.textInformationStyle,
-              {
-                textAlign: 'right',
-                color: priceColorManager(Number(daily_change)),
-              },
-            ]}>
-            {daily_change}
-          </Text>
-        </View>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const Styles = StyleSheet.create({
-  Container: {
-    borderWidth: 1,
-    margin: 4,
-    padding: 10,
-    borderRadius: 7,
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
-  textInformationStyle: {fontSize: 16},
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  containerActions: {
+    flexDirection: 'row',
+  },
+  text: {
+    fontSize: 16,
+  },
+  flex1: {
+    flex: 1,
+  },
+  price: {
+    fontWeight: 'bold',
+  },
 });
