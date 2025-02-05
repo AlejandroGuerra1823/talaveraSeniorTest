@@ -5,6 +5,12 @@ export const PrincipalScreen = () => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
+      <Text>PrincipalScreen</Text>
     </View>
   );
 };
